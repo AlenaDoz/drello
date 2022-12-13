@@ -19,7 +19,7 @@ export const Alert: React.FC<AlertProps> = ({
       open={isOpen}
       anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       onClose={onClose}
-      autoHideDuration={2000}
+      autoHideDuration={1500}
     >
       <AlertMUI
         severity={isError ? 'error' : 'success'}

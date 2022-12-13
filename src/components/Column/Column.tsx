@@ -4,10 +4,10 @@ import {
   AddTaskBtn,
   RemoveBtn,
   ColumnBlock,
-  ColumnTitle,
+  DragArea,
 } from './styles';
 import AddButton from '../../assets/images/add-board.svg';
-import { IColumn } from '../../types/interfaces';
+import { IAddEditModal, IColumn } from '../../types/interfaces';
 import { toogleAddTaskModal } from '../../store/tasksSlice/tasksSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import {
@@ -16,10 +16,11 @@ import {
 } from '../../store/columnsSlice/columnsSlice';
 import DeleteModal from '../DeleteModal/DeleteModal';
 import { useCallback } from 'react';
-import { deleteColumn } from '../../store/columnsSlice/columnsActions';
+import { deleteColumn, updateColumn } from '../../store/columnsSlice/columnsActions';
 import { useParams } from 'react-router-dom';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import { EditableTitle } from '../EditableTitle/EditableTitle';
 
 type Props = {
   data: IColumn;
@@ -27,7 +28,7 @@ type Props = {
 };
 
 export const Column = ({ children, data }: Props) => {
-  const { isColDeleteModalOpen, currentColumn} = useAppSelector(
+  const { isColDeleteModalOpen, currentColumn } = useAppSelector(
     (state) => state.columns
   );
   const dispatch = useAppDispatch();
@@ -67,14 +68,24 @@ export const Column = ({ children, data }: Props) => {
     if (boardId) {
       dispatch(deleteColumn({ boardId, columnId: currentColumn }));
     }
-
     closeModal();
   };
+
+  const updateColumnHandler = useCallback(({ title }: IAddEditModal) => {
+    const { order } = data;
+    if (boardId) {
+      dispatch(updateColumn({ boardId, columnId: data._id, data: {
+        title: title ? title : data.title,
+        order
+      }}));
+    }
+  }, [boardId, data, dispatch]);
 
   return (
     <div ref={setNodeRef} style={style} {...attributes}>
       <ColumnBlock ref={drop}>
-        <ColumnTitle {...listeners}>{data.title}</ColumnTitle>
+        <DragArea {...listeners} />
+        <EditableTitle title={data.title} dispatch={updateColumnHandler}/>
         {children}
         <AddTaskBtn onClick={() => taskModalOpen()}>
           <AddBoardImg src={AddButton} />

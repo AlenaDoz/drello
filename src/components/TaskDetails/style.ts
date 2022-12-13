@@ -21,7 +21,9 @@ const TaskDetailsModal = styled.div`
   right: 50%;
   transform: translate(50%, -50%);
   min-width: 400px;
+  max-width: 800px;
   min-height: 300px;
+  width: 100%;
   padding: 20px;
   display: flex;
   justify-content: center;

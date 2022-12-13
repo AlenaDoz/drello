@@ -33,6 +33,7 @@ const AddTaskBtn = styled.div`
 const AddBoardImg = styled.img`
   width: 30px;
 `;
+
 const RemoveBtn = styled.div`
   cursor: pointer;
   position: absolute;
@@ -41,4 +42,10 @@ const RemoveBtn = styled.div`
   font-size: 15px;
 `;
 
-export { ColumnBlock, AddTaskBtn, AddBoardImg, ColumnTitle, RemoveBtn };
+const DragArea = styled.div`
+  width: 100%;
+  height: 20px;
+  cursor: all-scroll;
+`;
+
+export { ColumnBlock, AddTaskBtn, AddBoardImg, ColumnTitle, RemoveBtn, DragArea };

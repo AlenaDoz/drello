@@ -20,10 +20,14 @@ import {
   EditProfile,
   CreateBoardImg,
   SignOutImg,
+  NavImage,
+  CreateBoard,
+  SignOut,
+  SignIn,
+  SignUp,
 } from './style';
 import i18next from '../../translations/translations';
 import { langs } from '../../constants/constants';
-import { CreateBoard } from '../AddBoard/style';
 
 const Header = () => {
   const [lang, setLang] = useState(langs.ru);
@@ -67,23 +71,31 @@ const Header = () => {
         {!isAuth ? (
           <>
             <NavLink to={ROUTES.signIn}>
-              <UserImage src={SignInImg} alt='SignIn'></UserImage>
+              <SignIn data-tooltip='Sign in'>
+                <UserImage src={SignInImg} alt='SignIn'></UserImage>
+              </SignIn>
             </NavLink>
             <NavLink to={ROUTES.registration}>
-              <UserImage src={SignUpImg} alt='SignUp'></UserImage>
+              <SignUp data-tooltip='Sign up'>
+                <UserImage src={SignUpImg} alt='SignUp'></UserImage>
+              </SignUp>
             </NavLink>
           </>
         ) : (
           <>
             <NavLink to={ROUTES.editProfile}>
-              <EditProfile src={EditProfileImage}></EditProfile>
+              <EditProfile data-tooltip='Edit profile'>
+                <NavImage src={EditProfileImage} alt='Edit profile' />
+              </EditProfile>
             </NavLink>
-            <NavLink to={ROUTES.createBoard}>
-              <CreateBoardImg src={CreateBoardImage}></CreateBoardImg>
+            <NavLink to={ROUTES.boards}>
+              <CreateBoard data-tooltip='Boards'>
+                <CreateBoardImg src={CreateBoardImage}></CreateBoardImg>
+              </CreateBoard>
             </NavLink>
-            <div onClick={handlerSignOut}>
+            <SignOut onClick={handlerSignOut} data-tooltip='Sign out'>
               <SignOutImg src={SignOutImage} alt='SignOut' />
-            </div>
+            </SignOut>
           </>
         )}
       </NavBlock>

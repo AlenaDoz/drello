@@ -92,7 +92,7 @@ const Login: React.FC = () => {
         <Loading />
       ) : (
         <Alert
-          message={errorMessage || `Добро пожаловать`}
+          message={t('errorLogin')}
           onClose={handleCloseAlert}
           isOpen={isAlertOpen}
           isError={!!errorMessage}

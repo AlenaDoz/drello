@@ -2,7 +2,7 @@ import { Modal } from '@mui/material';
 import styled from 'styled-components';
 import { widthEntryPoints, fonts } from '../../constants/constants';
 
-const BoardOverlay = styled(Modal)<{ isOpened: boolean }>`
+const BoardOverlay = styled(Modal)`
   && .MuiBackdrop-root {
     background-color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
@@ -12,8 +12,6 @@ const BoardOverlay = styled(Modal)<{ isOpened: boolean }>`
   position: absolute;
   top: 0;
   right: 0;
-  visibility: ${(props) => (props.isOpened ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.isOpened ? 1 : 0)};
 `;
 
 const BoardWindow = styled.div`

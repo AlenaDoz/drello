@@ -3,7 +3,6 @@ import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { boardReducer } from './boardSlice/boardSlice';
 import { columnsReducer } from './columnsSlice/columnsSlice';
 import { tasksReducer } from './tasksSlice/tasksSlice';
-import logger from 'redux-logger';
 
 export const store = configureStore({
   reducer: {
@@ -13,7 +12,6 @@ export const store = configureStore({
     tasks: tasksReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

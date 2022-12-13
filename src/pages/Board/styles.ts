@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const BoardBlock = styled.div`
   width: 95%;
+  height: 70vh;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -19,4 +20,9 @@ const AddColumnBtn = styled.div`
   cursor: pointer;
 `;
 
-export { BoardBlock, AddColumnBlock, AddColumnBtn };
+const BackImage = styled.img`
+  height: 40px;
+  margin: 15px 0 15px 110px;
+`;
+
+export { BoardBlock, AddColumnBlock, AddColumnBtn, BackImage };

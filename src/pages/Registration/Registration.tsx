@@ -108,7 +108,7 @@ const Registration: React.FC = () => {
         <Loading />
       ) : (
         <Alert
-          message={errorMessage || 'Пользователь успешно зарегестрирован'}
+          message={errorMessage ?t('errorRegistration'):t('successRegistration')}
           onClose={handleCloseAlert}
           isOpen={isAlertOpen}
           isError={!!errorMessage}

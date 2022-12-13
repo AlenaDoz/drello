@@ -36,7 +36,7 @@ export const tasksSlice = createSlice({
   initialState,
   reducers: {
     resetTasks: (state) => {
-      state.tasks = []
+      state.tasks = [];
     },
     setCurrentTask: (state, action) => {
       state.currentTask = action.payload;
@@ -92,7 +92,9 @@ export const tasksSlice = createSlice({
       state.loading = false;
       state.isTaskAddModalOpen = false;
       state.shouldLoadTasks = true;
-      state.tasks = state.tasks.filter(task => task._id !== action.payload._id);
+      state.tasks = state.tasks.filter(
+        (task) => task._id !== action.payload._id
+      );
     });
     builder.addCase(deleteTask.rejected, (state, action) => {
       state.errorMessage = (action.payload as Error).message || '';
@@ -100,14 +102,24 @@ export const tasksSlice = createSlice({
       state.loading = false;
     });
     builder.addCase(updateTask.fulfilled, (state, action) => {
+      
       state.errorTasks = false;
       state.loadingTasks = false;
-      const index = state.tasks.findIndex(task => task._id === action.payload._id);
+      const index = state.tasks.findIndex(
+        (task) => task._id === action.payload._id
+      );
       state.tasks[index] = action.payload;
-      state.shouldLoadTasks = false;
-    })
+      state.shouldLoadTasks = true;
+    });
   },
 });
 
 export const tasksReducer = tasksSlice.reducer;
-export const { resetTasks, toogleAddTaskModal, toogleDeleteTaskModal, setCurrentTask, toogleTaskDetailsModal, setTaskDetails } = tasksSlice.actions;
+export const {
+  resetTasks,
+  toogleAddTaskModal,
+  toogleDeleteTaskModal,
+  setCurrentTask,
+  toogleTaskDetailsModal,
+  setTaskDetails,
+} = tasksSlice.actions;

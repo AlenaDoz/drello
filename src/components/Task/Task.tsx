@@ -3,8 +3,15 @@ import { DropTargetMonitor, useDrag, useDrop } from 'react-dnd';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { deleteTask, updateTask } from '../../store/tasksSlice/tasksActions';
-import { setCurrentTask, toogleDeleteTaskModal } from '../../store/tasksSlice/tasksSlice';
-import { IDnDItem, IdropResult, ITask } from '../../types/interfaces';
+import {
+  setCurrentTask,
+  toogleDeleteTaskModal,
+} from '../../store/tasksSlice/tasksSlice';
+import {
+  IDnDItem,
+  IdropResult,
+  ITask,
+} from '../../types/interfaces';
 import DeleteModal from '../DeleteModal/DeleteModal';
 import { RemoveBtn, TaskBlock } from './styles';
 
@@ -16,7 +23,9 @@ interface Props {
 
 export const Task = ({ data, index, onClick }: Props) => {
   const { _id, title, columnId, description, userId, users } = data;
-  const { isTaskDeleteModalOpen, currentTask } = useAppSelector((state) => state.tasks);
+  const { isTaskDeleteModalOpen, currentTask } = useAppSelector(
+    (state) => state.tasks
+  );
   const boardId = useParams().id;
   const dispatch = useAppDispatch();
 
@@ -122,7 +131,6 @@ export const Task = ({ data, index, onClick }: Props) => {
     dispatch(toogleDeleteTaskModal(true));
   }, [data._id, dispatch]);
 
-
   const closeModal = useCallback(() => {
     dispatch(toogleDeleteTaskModal(false));
   }, [dispatch]);
@@ -136,18 +144,16 @@ export const Task = ({ data, index, onClick }: Props) => {
   };
 
   return (
-    <TaskBlock ref={ref} style={{ opacity }} onClick={() => onClick(data)}>
+    <TaskBlock ref={ref} style={{ opacity }} onClick={(e) => onClick(e, data)}>
       {title}
       <RemoveBtn onClick={() => deleteTaskModalOpen()}>x</RemoveBtn>
-      {
-        isTaskDeleteModalOpen && 
+      {isTaskDeleteModalOpen && (
         <DeleteModal
           isOpened={isTaskDeleteModalOpen}
           dispatch={deleteTaskHandler}
           closeModal={closeModal}
         />
-      }
+      )}
     </TaskBlock>
   );
 };
-

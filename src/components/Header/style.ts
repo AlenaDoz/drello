@@ -73,11 +73,93 @@ const SwitcherBlock = styled.div`
 const UserImage = styled.img`
   height: 20px;
 `;
-
-const EditProfile = styled.img`
+const SignIn = styled.div`
+  position: relative;
   height: 20px;
+  &:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 0;
+    top: 130%;
+    background-color: ${styleVars.sand};
+    color: ${styleVars.black};
+    font-size: 10px;
+    padding: 3px;
+    border-radius: 3px;
+    width: 85px;
+    display: flex;
+    justify-content: center;
+    flex-direction; column;
+    align-items: center;
+  }
 `;
 
+const SignUp = styled.div`
+  position: relative;
+  height: 20px;
+  &:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 0;
+    top: 130%;
+    background-color: ${styleVars.sand};
+    color: ${styleVars.black};
+    font-size: 10px;
+    padding: 3px;
+    border-radius: 3px;
+    width: 85px;
+    display: flex;
+    justify-content: center;
+    flex-direction; column;
+    align-items: center;
+  }
+`;
+
+const EditProfile = styled.div`
+  position: relative;
+  height: 20px;
+  &:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 0;
+    top: 130%;
+    background-color: ${styleVars.sand};
+    color: ${styleVars.black};
+    font-size: 10px;
+    padding: 3px;
+    border-radius: 3px;
+    width: 85px;
+    display: flex;
+    justify-content: center;
+    flex-direction; column;
+    align-items: center;
+  }
+`;
+const NavImage = styled.img`
+  height: 20px;
+  cursor: pointer;
+`;
+
+const CreateBoard = styled.div`
+position: relative;
+  height: 20px;
+  &:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 0;
+    top: 130%;
+    background-color: ${styleVars.sand};
+    color: ${styleVars.black};
+    font-size: 10px;
+    padding: 3px;
+    border-radius: 3px;
+    width: 85px;
+    display: flex;
+    justify-content: center;
+    flex-direction; column;
+    align-items: center;
+  }
+`;
 const CreateBoardImg = styled.img`
   height: 20px;
 `;
@@ -85,6 +167,27 @@ const CreateBoardImg = styled.img`
 const SignOutImg = styled.img`
   height: 20px;
   cursor: pointer;
+`;
+
+const SignOut = styled.div`
+  position: relative;
+  height: 20px;
+  &:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 0;
+    top: 130%;
+    background-color: ${styleVars.sand};
+    color: ${styleVars.black};
+    font-size: 10px;
+    padding: 3px;
+    border-radius: 3px;
+    width: 85px;
+    display: flex;
+    justify-content: center;
+    flex-direction; column;
+    align-items: center;
+  }
 `;
 
 export {
@@ -98,4 +201,9 @@ export {
   EditProfile,
   CreateBoardImg,
   SignOutImg,
+  NavImage,
+  CreateBoard,
+  SignOut,
+  SignIn,
+  SignUp,
 };

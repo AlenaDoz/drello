@@ -43,6 +43,9 @@ const translationEN = {
       minLogin: 'Login must contain at least 2 characters',
       minPassword: 'Password must contain at least 6 characters',
     },
+    successRegistration:'User successfully registered',
+    errorRegistration:'This user is already registered',
+    errorLogin:'Authorization error'
   },
   deleteModal: {
     title: 'Are you sure?',
@@ -56,6 +59,9 @@ const translationEN = {
     titleEdit: 'EDIT BOARD',
     continue: 'CONTINUE',
     cancel: 'CANCEL',
+    addColumn:'Add column',
+    name:'NAME',
+    description:'DESCRIPTION'
   },
 };
 
@@ -99,6 +105,9 @@ const translationRU = {
       minLogin: 'Логин должен содержать не менее 2 символов',
       minPassword: 'Пароль должен coдержать не менее 6-ти символов',
     },
+    successRegistration:'Пользователь успешно зарегестрирован',
+    errorRegistration:'Такой пользователь уже зарегестрирован',
+    errorLogin:'Ошибка авторизации'
   },
   deleteModal: {
     title: 'Вы уверены?',
@@ -112,6 +121,9 @@ const translationRU = {
     titleEdit: 'РЕДАКТИРОВАТЬ ДОСКУ',
     continue: 'ПРОДОЛЖИТЬ',
     cancel: 'ОТМЕНИТЬ',
+    addColumn:'Добавить колонку',
+    name:'ИМЯ',
+    description:'ОПИСАНИЕ'
   },
 };
 i18next.use(initReactI18next).init({

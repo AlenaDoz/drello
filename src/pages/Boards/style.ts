@@ -31,17 +31,21 @@ const BoardsList = styled.ul`
 `;
 
 const BoardCard = styled.li`
+  position: relative;
   width: 410px;
   height: 120px;
   display: flex;
-  box-shadow: 0 0 10px rgb(0 0 0 / 10%)
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
   align-items: center;
-  padding: 10px;
+  padding: 10px 80px 10px 10px;
   gap: 20px;
   background-color: #B7EAF7;
   border-radius: 8px;
   transition: 0.2s linear;
   cursor: pointer;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
   @media (${widthEntryPoints.tablet}) {
     width: 250px;
   }
@@ -69,6 +73,9 @@ const KanbanImg = styled.img`
 `;
 
 const Images = styled.div`
+  position: absolute;
+  top: 15px;
+  right: 15px;
   display: flex;
   gap: 10px;
 `;
@@ -90,6 +97,7 @@ const CardBlock = styled.div`
 `;
 
 const AddBoardButton = styled(BoardCard)`
+  padding: 10px;
   border: 1px dashed black;
   cursor: pointer;
   margin-bottom: 15px;

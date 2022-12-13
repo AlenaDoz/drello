@@ -8,6 +8,7 @@ import {
   ButtonCancel,
   ButtonContinue,
   CreateBoard,
+  InputDescription,
   InputName,
 } from './styles';
 
@@ -36,10 +37,12 @@ export const AddEditModal: React.FC<IAddBoard> = ({
   if (description) {
     defaultValues.description = descrValue ? descrValue : '';
   }
+  
   const { register, handleSubmit, reset } = useForm({ defaultValues });
 
   const createModalClose = () => {
     closeModal();
+    reset()
   };
 
   const clickHandler: SubmitHandler<IAddEditModal> = (data: IAddEditModal) => {
@@ -50,7 +53,6 @@ export const AddEditModal: React.FC<IAddBoard> = ({
   return (
     <BoardOverlay
       open={isOpened}
-      isOpened={isOpened}
       onClose={createModalClose}
       disableAutoFocus={true}
     >
@@ -60,13 +62,12 @@ export const AddEditModal: React.FC<IAddBoard> = ({
           <InputName
             {...register('title', { required: true })}
             type='text'
-            placeholder='NAME'
+            placeholder={t('name')}
           />
           {description && (
-            <InputName
-              {...register('description')}
-              type='text'
-              placeholder='DESCRIPTION'
+            <InputDescription
+              {...register('description', { required: true })}
+              placeholder={t('description')}
             />
           )}
           <ButtonBlock>
